@@ -4,39 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>杜</title>
+    <script src="jquery.mini.js"></script>
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
         body{
             background-color: #eee8e8;
+            height: 2000px;
         }
         #shouye img{
             width: 50px;
         }
         header{
-            
+            width: 100%;
+            height: 50px;
             box-shadow: 1px 1px 2px;
         
         }
         .nav{
             position: relative;
         }
-        .choose{
-            
-            top: 15px;
-            right: 50px;
-            position: absolute;
-            font-size: large;
-            font-family: 'Courier New', Courier, monospace;
-            
-
-        }
+       
         .choose a{
             text-decoration: none;
             color: black;
         }
         .blog{
-            border: 1px solid rgb(0, 0, 0);
-            width: 900px;
-            height: 700px;
+            box-shadow: 4px 3px 25px -5px;
+            width: 980px;
+            height: 2000px;
             margin: auto;
         }
         .cheems{
@@ -69,6 +68,30 @@
        .end{
         color: blue;
        }
+       .choose{
+        position: absolute;
+        top: 15px;
+        right: 100px;
+       }
+       .choose li{
+        line-height: 20px;
+
+        display: inline;
+        padding: 0 10px;
+        font-size: 30px;
+
+        
+       }
+       .choose .current{
+
+        background-color: #fffdfd;
+        color: #fff;
+       
+        
+       }
+       .mainartcle{
+        text-align: center;
+       }
     </style>
 
 </head>
@@ -78,29 +101,56 @@
             
             <a href="index.html" id="shouye"><img src="Home.png" alt="" id="home"></a>
             <div class="choose">
-            <a href="">资源下载</a>
-            <a href="">路线分享</a>
-            <a href="">主界面123</a>
+             <ul>
+
+            <li><a href="#">资源下载</a></li>
+            <li><a href="#">路线分享</a></li>
+        </ul>   
         </div>
             
         </div>
     </header>
    <div class="blog">
+    <div class="moudlemain">
     <div class="cheems">
     <img src="cheems.webp" alt="">
 </div>
     <div class="title">欢迎</div>
-    <div class="date"></div>
-    <div class="artcle"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里是杜明珅的博客正文</p><p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里以后会分享一些学习资料和学习路线规划 以及制作的一些项目
+    <div class="mainartcle"><h1>这里是杜明珅的博客正文</h1><p>
+        这里以后会分享一些学习资料和学习路线规划 以及制作的一些项目
         敬请期待
     </p>
     </div>
+</div>
+   <div class="moudle" style="display: none;">
+    <p>123</p>
+   </div>
+   <div class="moudle" style="display: none;">
+<h1>这里是学习路线分享</h1>
+<p>逆天逆天逆天逆天</p>
+   </div>
    </div>
    <footer>
     <div class="end">
         &copy;dumingshen
         qq:1532549500
+
+   </div>
+</footer>
+<script>
+$(function(){
+    $(".choose li").click(function(){
+        $(this).addClass("current").siblings().removeClass("current");
+        var num=$(this).index();
+        $(".blog .moudle").eq(num).show().siblings().hide();
+
+
+
+    });
+})
+</script>
+</body>
+</html>
 
    </div>
 </footer>
