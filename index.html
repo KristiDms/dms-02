@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>杜</title>
+    <link rel="icon" href="FxemojiGrowingheart.png">
     <script src="jquery.mini.js"></script>
     <style>
         *{
@@ -15,6 +16,7 @@
             background-color: #eee8e8;
             height: 2000px;
         }
+       
         #shouye img{
             width: 50px;
         }
@@ -35,17 +37,36 @@
         .blog{
             box-shadow: 4px 3px 25px -5px;
             width: 980px;
-            height: 2000px;
+            height: 1500px;
             margin: auto;
+            overflow-y: scroll;
+        }
+        .blog::-webkit-scrollbar{
+            width: 20px;
+            background-color:rgba(130, 117, 117, 0.423);
+        }
+        .blog::-webkit-scrollbar-track{
+            background-color: rgba(227, 215, 215, 0.064);
+            border: 10px;
+        }
+        .blog::-webkit-scrollbar-thumb{
+            background-color: rgba(159, 154, 154, 0.888);
+            border: 10px;
         }
         .cheems{
-            width: 200px;
+            width: 300px;
+            height: 300px;
             padding: 50px;
-            margin: auto;
+            position: relative;
+            top: 15px;
+            left: 280px;
+        
+           
 
         }
         .cheems img{
-            width: 200px;
+            width: 300px;
+            position: absolute;
         }
         .title{
             font-family: Georgia, 'Times New Roman', Times, serif;
@@ -91,11 +112,52 @@
        }
        .mainartcle{
         text-align: center;
+        padding-top: 10%;
+        height: 2000px;
+       }
+       #notice{
+        background-color: #cdc5c5f2;
+        display: inline-block;
+        position: absolute;
+        top: 300px;
+        left: 300px;
+        width: 840px;
+        height: 400px;
+        z-index: 3;
+        word-wrap: break-word;
+       }
+       .x{
+        
+       
+        width: 20px;
+        height: 20px;
+        
+        position: relative;
+        float: right;
+        top: -60px;
+        font-size: 40px;
+       }
+       #notice h1{
+        text-align: center;
+        color: red;
+
+       }
+       #notice p{
+        line-height: 100px;
+        font-size: 30px;
+        text-align: left;
        }
     </style>
 
 </head>
 <body>
+    <div id="notice">
+        <h1>通知</h1>
+        <div class="x">x</div>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;本静态网站属于正在开发阶段 暂时没有任何功能 仅供参考</p>
+        
+
+    </div>
     <header>
         <div class="nav">
             
@@ -115,8 +177,9 @@
     <div class="cheems">
     <img src="cheems.webp" alt="">
 </div>
-    <div class="title">欢迎</div>
-    <div class="mainartcle"><h1>这里是杜明珅的博客正文</h1><p>
+    
+    <div class="mainartcle">
+        <div class="title">欢迎</div><h1>这里是杜明珅的博客正文</h1><p>
         这里以后会分享一些学习资料和学习路线规划 以及制作的一些项目
         敬请期待
     </p>
@@ -141,18 +204,26 @@
 $(function(){
     $(".choose li").click(function(){
         $(this).addClass("current").siblings().removeClass("current");
-        var num=$(this).index();
-        $(".blog .moudle").eq(num).show().siblings().hide();
+        //小li的派他思想 为选择的添加current类 其余的兄弟节点删除current类（变色）
+        var num=$(this).index();//得到页号
+        $(".blog .moudle").eq(num).show().siblings().hide();//将moudle（博客页面部分）添加显示 其余兄弟节点隐藏
 
 
 
     });
+    $(".x").click(function(){
+        $('#notice').hide()
+    })
 })
-</script>
-</body>
-</html>
 
-   </div>
-</footer>
+
+</script>
+<script>
+   window.onscroll=function(){
+   let scrollTop=document.documentElement.scrollTop;
+ document.getElementById("notice").style.top=(scrollTop+200)+"px";
+}
+    
+</script>
 </body>
 </html>
